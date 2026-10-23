@@ -1,0 +1,20 @@
+{
+  "name": "odbviewer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build:wasm && vite",
+    "build": "npm run build:wasm && vite build",
+    "preview": "vite preview",
+    "build:wasm": "cd wasm && cargo build --release --target wasm32-unknown-unknown && cp target/wasm32-unknown-unknown/release/odb.wasm ../src/odb.wasm"
+  },
+  "dependencies": {
+    "three": "^0.186.1",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.10",
+    "vite": "^8.3.4"
+  }
+}
