@@ -26,6 +26,19 @@ The wasm has no bindgen layer — it exports `alloc`/`tessellate`/`vptr` as plai
 
 Reference: 1.9 M triangles for all 43 layers of `designodb_rigidflex` in ~340 ms.
 
+## Deploying to GitHub Pages
+
+Push to `main`; `.github/workflows/deploy.yml` builds the wasm, bundles with Vite, and
+publishes `dist/` via GitHub Pages. One-time repo setup:
+
+1. **Settings → Pages → Source: GitHub Actions.**
+2. Push to `main` — the workflow builds and deploys automatically.
+
+`vite.config.js` sets `base: '/odbviewer/'` to match this repo's Pages URL
+(`<user>.github.io/odbviewer/`). Renaming the repo, or deploying under a custom domain
+or `<user>.github.io` user page, means updating that `base` to match (`'/'` for the
+latter two).
+
 ## Known limits
 
 - **Stackup is nominal.** The sample job ships no stackup file, so 3D layer
